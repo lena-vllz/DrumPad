@@ -8,7 +8,6 @@ displayText.textContent = 'Welcome';
 document.documentElement.setAttribute('data-theme', 'default');
 
 
-
 // THEME 1 AUDIO
 function audioEvent(event) {
     const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
@@ -61,8 +60,10 @@ function displayThemeAudio()
 
 
 
-
-
+// note avant d'aller dodo:
+// A RAJOUTER : le faite que le boutton enter change de thème + le son + - fort
+// mettre des commentaires
+// ajouter le changement de mots
 
 
 
