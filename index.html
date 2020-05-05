@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Drum pad</title>
+    <meta name="description" content="description de ma page">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poiret+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <h1 class="title">Play your song</h1>
+    <div class="words"></div>
+    <div class="container">
+        <!-- PADS CONTAINER  -->
+        <div class="padsContainer">
+          <div class="lign1">
+            <div data-key="65"class="box key1">
+              <span class="letter">A</span>
+              <span class="sound">ding</span>
+            </div>
+            <div data-key="90"class="box key2">
+              <span class="letter">Z</span>
+              <span class="sound">work it</span>
+            </div>
+            <div data-key="69"class="box key3">
+              <span class="letter">E</span>
+              <span class="sound">make it</span>
+            </div>
+            <div data-key="82"class="box key4">
+              <span class="letter">R</span>
+              <span class="sound">do it</span>
+            </div>
+            <div data-key="84"class="box key5">
+              <span class="letter">T</span>
+              <span class="sound">make us</span>
+            </div>
+            <div data-key="89"class="box key6">
+              <span class="letter">Y</span>
+              <span class="sound">ding</span>
+            </div>
+            <div data-key="85"class="box key7">
+              <span class="letter">U</span>
+              <span class="sound">harder</span>
+            </div>
+            <div data-key="73"class="box key8">
+              <span class="letter">I</span>
+              <span class="sound">better</span>
+            </div>
+            <div data-key="79"class="box key9">
+              <span class="letter">O</span>
+              <span class="sound">faster</span>
+            </div>
+            <div data-key="80"class="box key10">
+              <span class="letter">P</span>
+              <span class="sound">stronger</span>
+            </div>
+            <div data-key="8"class="box key11">
+              <span class="letter">Backspace</span>
+              <span class="delete">Delete</span>
+            </div>
+          </div>
+          <div class="lign2">
+            <div data-key="81"class="box key12">
+              <span class="letter">Q</span>
+              <span class="sound">ding</span>
+            </div>
+            <div data-key="83"class="box key13">
+              <span class="letter">S</span>
+              <span class="sound">more than</span>
+            </div>
+            <div data-key="68"class="box key14">
+              <span class="letter">D</span>
+              <span class="sound">hour</span>
+            </div>
+            <div data-key="70"class="box key15">
+              <span class="letter">F</span>
+              <span class="sound">our</span>
+            </div>
+            <div data-key="71"class="box key16">
+              <span class="letter">G</span>
+              <span class="sound">never</span>
+            </div>
+            <div data-key="72"class="box key17">
+              <span class="letter">H</span>
+              <span class="class">ding</span>
+            </div>
+            <div data-key="74"class="box key18">
+              <span class="letter">J</span>
+              <span class="sound">ever</span>
+            </div>
+            <div data-key="75"class="box key19">
+              <span class="letter">K</span>
+              <span class="sound">after</span>
+            </div>
+            <div data-key="76"class="box key20">
+              <span class="letter">L</span>
+              <span class="sound">work is</span>
+            </div>
+            <div data-key="77"class="box key21">
+              <span class="letter">M</span>
+              <span class="sound">over</span>
+            </div>
+            <div data-key="13"class="box key22">
+              <span class="letter">Enter</span>
+              <span class="playmusic">Play</span>
+            </div>
+          </div>
+          <div class="lign3">
+            <div data-key="87"class="box key23">
+              <span class="letter">W</span>
+              <span class="sound">ding</span>
+            </div>
+            <div data-key="88"class="box key24">
+              <span class="letter">X</span>
+              <span class="sound">work it</span>
+            </div>
+            <div data-key="67"class="box key25">
+              <span class="letter">C</span>
+              <span class="sound">make it</span>  
+            </div>
+            <div data-key="86"class="box key26">
+              <span class="letter">V</span>
+              <span class="sound">do it</span>
+            </div>
+            <div data-key="66"class="box key27">
+              <span class="letter">B</span>
+              <span class="sound">make us</span>
+            </div>
+            <div data-key="78"class="box key28">
+              <span class="letter">N</span>
+              <span class="sound">ding</span>
+            </div>
+            <div data-key="37"class="box key29">
+              <span class="letter">ArrowLeft</span>
+              <span class="volum">-</span>
+            </div>
+            <div data-key="39"class="box key30">
+              <span class="letter">ArrowRight</span>
+              <span class="volum">+</span>
+            </div>
+          </div>
+        </div>
+        <!-- AUDIO 1 -->
+        <audio data-key="65" data-id="ding"src="sounds/AKey.mp3"></audio>
+        <audio data-key="90" data-id="work it"src="sounds/ZKey.mp3"></audio>
+        <audio data-key="69" data-id="make it"src="sounds/EKey.mp3"></audio>
+        <audio data-key="82" data-id="do it"src="sounds/RKey.mp3"></audio>
+        <audio data-key="84" data-id="make us"src="sounds/TKey.mp3"></audio>
+        <audio data-key="89" data-id="ding"src="sounds/YKey.mp3"></audio>
+        <audio data-key="85" data-id="harder"src="sounds/UKey.mp3"></audio>
+        <audio data-key="73" data-ide="better"src="sounds/IKey.mp3"></audio>
+        <audio data-key="79" data-id="faster"src="sounds/OKey.mp3"></audio>
+        <audio data-key="80" data-id="stronger"src="sounds/PKey.mp3"></audio>
+        <audio data-key="81" data-id="ding"src="sounds/QKey.mp3"></audio>
+        <audio data-key="83" data-id="more than"src="sounds/SKey.mp3"></audio>
+        <audio data-key="68" data-id="hour"src="sounds/DKey.mp3"></audio>
+        <audio data-key="70" data-id="our"src="sounds/FKey.mp3"></audio>
+        <audio data-key="71" data-id="never"src="sounds/GKey.mp3"></audio>
+        <audio data-key="72" data-id="ding"src="sounds/HKey.mp3"></audio>
+        <audio data-key="74" data-id="ever"src="sounds/JKey.mp3"></audio>
+        <audio data-key="75" data-id="after"src="sounds/KKey.mp3"></audio>
+        <audio data-key="76" data-id="work is"src="sounds/LKey.mp3"></audio>
+        <audio data-key="77" data-id="over"src="sounds/MKey.mp3"></audio>
+        <audio data-key="87" data-id="ding"src="sounds/WKey.mp3"></audio>
+        <audio data-key="88" data-id="work it"src="sounds/XKey.mp3"></audio>
+        <audio data-key="67" data-id="make it"src="sounds/CKey.mp3"></audio>
+        <audio data-key="86" data-id="do it"src="sounds/VKey.mp3"></audio>
+        <audio data-key="66" data-id="make us"src="sounds/BKey.mp3"></audio>
+        <audio data-key="78" data-id="ding"src="sounds/NKey.mp3"></audio>
+        <!-- AUDIO 2 -->
+        <!-- <audio data-key="65" data-id="♫♫"src="sounds/AKey.mp3"></audio>
+        <audio data-key="90" data-id="♫♫"src="sounds/ZKey.mp3"></audio>
+        <audio data-key="69" data-id="Pain!"src="sounds/EKey.mp3"></audio>
+        <audio data-key="82" data-id="You made me a"src="sounds/RKey.mp3"></audio>
+        <audio data-key="84" data-id="you made me a"src="sounds/TKey.mp3"></audio>
+        <audio data-key="89" data-id="believer"src="sounds/YKey.mp3"></audio>
+        <audio data-key="85" data-id="believer"src="sounds/UKey.mp3"></audio>
+        <audio data-key="73" data-ide="♫♫"src="sounds/IKey.mp3"></audio>
+        <audio data-key="79" data-id="Pain!"src="sounds/OKey.mp3"></audio>
+        <audio data-key="80" data-id="You break me down"src="sounds/PKey.mp3"></audio>
+        <audio data-key="81" data-id="and build me up"src="sounds/QKey.mp3"></audio>
+        <audio data-key="83" data-id="believer"src="sounds/SKey.mp3"></audio>
+        <audio data-key="68" data-id="believer"src="sounds/DKey.mp3"></audio>
+        <audio data-key="70" data-id="Pain!"src="sounds/FKey.mp3"></audio>
+        <audio data-key="71" data-id="Oh, let the bullets fly,"src="sounds/GKey.mp3"></audio>
+        <audio data-key="72" data-id="oh, let them rain"src="sounds/HKey.mp3"></audio>
+        <audio data-key="74" data-id="My life,"src="sounds/JKey.mp3"></audio>
+        <audio data-key="75" data-id="my love,"src="sounds/KKey.mp3"></audio>
+        <audio data-key="76" data-id="my drive,"src="sounds/LKey.mp3"></audio>
+        <audio data-key="77" data-id="it came from...src="sounds/MKey.mp3"></audio>
+        <audio data-key="87" data-id="♫♫"src="sounds/WKey.mp3"></audio>
+        <audio data-key="88" data-id="Pain!"src="sounds/XKey.mp3"></audio>
+        <audio data-key="67" data-id="You made me a,"src="sounds/CKey.mp3"></audio>
+        <audio data-key="86" data-id="you made me a"src="sounds/VKey.mp3"></audio>
+        <audio data-key="66" data-id="believer,"src="sounds/BKey.mp3"></audio>
+        <audio data-key="78" data-id="believer"src="sounds/NKey.mp3"></audio> -->
+    </div>
+    <script src= "scripts/script.js"></script>
+</body>
+</html>
