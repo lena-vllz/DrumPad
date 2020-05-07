@@ -1,7 +1,7 @@
 const displayText = document.querySelector('.words')
 const less = document.querySelector('.key29')
 const more = document.querySelector('.key30')
-let themeDisplay = document.querySelector('.musicChoice')
+let musicChoice = document.querySelector('.musicChoice')
 
 
 displayText.textContent = 'Welcome';
@@ -9,7 +9,7 @@ document.documentElement.setAttribute('data-theme', 'default');
 
 
 // THEME 1 AUDIO
-function audioEvent(event) {
+function audioPlay(event) {
     const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
     const key = document.querySelector(`.box[data-key="${event.keyCode}"]`);
     if(!audio) return;
@@ -21,7 +21,7 @@ function audioEvent(event) {
 }; 
 
 // THEME 2 AUDIO
-function audioEvent(event) {
+function audioPlay2(event) {
     const audio = document.querySelector(`audio[data-info="${event.keyCode}"]`);
     const key = document.querySelector(`.box[data-key="${event.keyCode}"]`);
     if(!audio) return;
@@ -45,15 +45,15 @@ function displayThemeAudio()
     {
         document.documentElement.setAttribute('data-theme', 'default');
         themeDisplay.textContent = 'song 2'
-        window.removeEventListener('keydown', audioPlay)
-        window.addEventListener('keydown', audioPlay2)
+        window.removeEventListener('keydown', audioPlay2)
+        window.addEventListener('keydown', audioPlay)
     }
     else if(themeContent == 'song 2') 
     {
         document.documentElement.setAttribute('data-theme', 'song2');
         themeDisplay.textContent = 'song 1'
-        window.removeEventListener('keydown', audioPlay2)
-        window.addEventListener('keydown', audioPlay)
+        window.removeEventListener('keydown', audioPlay)
+        window.addEventListener('keydown', audioPlay2)
     }
 }
 
