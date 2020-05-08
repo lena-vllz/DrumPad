@@ -3,24 +3,33 @@ const less = document.querySelector('.key29')
 const more = document.querySelector('.key30')
 let themeContent = 'song 1'
 
-
 displayText.textContent = 'Welcome';
 document.documentElement.setAttribute('data-theme', 'default');
 
 
 // THEME 1 AUDIO
+// Function that plays audio on keydown + song 1
 function audioPlay(event) {
+
+    // Take the audio + pads according to the keyCode
     const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
     const key = document.querySelector(`.box[data-key="${event.keyCode}"]`);
     if(!audio) return;
+
+    // If no audio stop function
     audio.currentTime = 0;
     audio.play();
+
+    // add a class for the effect on the keys
     key.classList.add('playing');
+
+    // Take the data-id of the audio to display it
     const nameAudio = audio.getAttribute('data-id')
     displayText.textContent = nameAudio
 }; 
 
 // THEME 2 AUDIO
+// Function that plays audio on keydown + song 2
 function audioPlay2(event) {
     const audio = document.querySelector(`audio[data-info="${event.keyCode}"]`);
     const key = document.querySelector(`.box[data-key="${event.keyCode}"]`);
@@ -32,6 +41,7 @@ function audioPlay2(event) {
     displayText.textContent = nameAudio
 }; 
 
+// remove the animation on the keys
 function removeTransition(e){
     if (e.propertyName !== 'transform') return;
     this.classList.remove('playing')
@@ -39,17 +49,21 @@ function removeTransition(e){
 const keys = document.querySelectorAll('.box')
 keys.forEach(key => key.addEventListener('transitionend',removeTransition))
 
+// change theme & play audio
 window.addEventListener("keydown", changeTheme)
 window.addEventListener('keydown', audioPlay)
 
+
+// Function that display different theme colors and song
 function changeTheme(e) {
     if (e.code == "Enter" && themeContent == 'song 2') {
         themeContent = 'song 2'
         document.documentElement.setAttribute('data-theme', 'default');
         themeContent.textContent = 'song 2'
+        // Remove the seconde audio on keydown
         window.removeEventListener('keydown', audioPlay2)
+        // Put the new audio  on keydown
         window.addEventListener('keydown', audioPlay)
-        document.querySelectorAll('sound').style.display = "none";
         
     } else if (e.code == "Enter" && themeContent == 'song 1') {
         themeContent = 'song 1'
@@ -60,28 +74,29 @@ function changeTheme(e) {
     }
 }
 
+//volume management
+let volum = document.querySelectorAll('audio');
 
-// note avant d'aller dodo:
-// A RAJOUTER : le faite que le boutton enter change de thème + le son + - fort
-// mettre des commentaires
-// ajouter le changement de mots
-
-
-
-
-let vid = document.querySelectorAll('audio');
-
-vid.forEach(element => {
+volum.forEach(element => {
+    //define the volume
     element.volume = 0.5;
 
     window.addEventListener('keydown',(e) =>
     {
+        //left arrow lowers the volume by 0.1
         if (e.code === 'ArrowLeft'&& element.vol > 0) element.volume -= 0.1
     });
 
-
     window.addEventListener('keydown',(e) =>
     {
+        //right arrow raises the volume by 0.1
         if (e.code === "ArrowRight" && element.vol < 1) element.volume += 0.1
     });
 });
+
+
+// note avant d'aller dodo:
+// A RAJOUTER :
+// ajouter le changement de mots + réparer les modes 1 2 ok mais pas 1 2 1
+
+

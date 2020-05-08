@@ -17,6 +17,9 @@
   --padsGradient2:#05d448;
 }
 
+/****************** 
+        BODY 
+*******************/
 
 body{
   width: 100%;
@@ -26,6 +29,8 @@ body{
   margin:0px;
   font-family: 'Inter', sans-serif;
 }
+
+/******* title and lyrics *******/
 
 .title{
   text-align: center;
@@ -61,6 +66,8 @@ body{
     margin: 0 auto;
     cursor: pointer;
 }
+
+/******* keys ********/
 
 .padsContainer
 {
@@ -102,15 +109,6 @@ body{
   transition: all 1.07s;  
 
 }
-.sound2{
-  display:none;
-}
-
-.playing{
-  transform:scale(1.1);
-  background: linear-gradient(145deg, #d1d0cc, #f8f7f3);
-
-}
 
 .letter{
   margin-bottom: 10px;
@@ -123,9 +121,18 @@ body{
   width:130px;
 }
 
-.key29{
-  width:110px;
-}
 .key22{
   background: #ffffff;
+}
+
+.sound2{
+  display:none;
+}
+
+/****** animations keys ******/
+
+.playing{
+  transform:scale(1.1);
+  background: linear-gradient(145deg, #d1d0cc, #f8f7f3);
+
 }
