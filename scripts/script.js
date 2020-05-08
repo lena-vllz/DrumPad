@@ -1,7 +1,7 @@
 const displayText = document.querySelector('.words')
 const less = document.querySelector('.key29')
 const more = document.querySelector('.key30')
-let musicChoice = document.querySelector('.musicChoice')
+let themeContent = 'song 1'
 
 
 displayText.textContent = 'Welcome';
@@ -32,32 +32,33 @@ function audioPlay2(event) {
     displayText.textContent = nameAudio
 }; 
 
-// Remove animation on the letter
-function removeTransition(e)
+function removeTransition(e){
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing')
+}
 const keys = document.querySelectorAll('.box')
 keys.forEach(key => key.addEventListener('transitionend',removeTransition))
 
+window.addEventListener("keydown", changeTheme)
+window.addEventListener('keydown', audioPlay)
 
-function displayThemeAudio()
-{
-    let themeContent = musicChoice.textContent
-    if(themeContent == 'song 1') 
-    {
+function changeTheme(e) {
+    if (e.code == "Enter" && themeContent == 'song 2') {
+        themeContent = 'song 2'
         document.documentElement.setAttribute('data-theme', 'default');
-        themeDisplay.textContent = 'song 2'
+        themeContent.textContent = 'song 2'
         window.removeEventListener('keydown', audioPlay2)
         window.addEventListener('keydown', audioPlay)
-    }
-    else if(themeContent == 'song 2') 
-    {
+        document.querySelectorAll('sound').style.display = "none";
+        
+    } else if (e.code == "Enter" && themeContent == 'song 1') {
+        themeContent = 'song 1'
         document.documentElement.setAttribute('data-theme', 'song2');
-        themeDisplay.textContent = 'song 1'
+        themeContent.textContent = 'song 1'
         window.removeEventListener('keydown', audioPlay)
         window.addEventListener('keydown', audioPlay2)
     }
 }
-
-
 
 
 // note avant d'aller dodo:
@@ -68,17 +69,19 @@ function displayThemeAudio()
 
 
 
+let vid = document.querySelectorAll('audio');
 
-// let vid = audio.querySelector('audio');
-// vid.volume = 0.5;
+vid.forEach(element => {
+    element.volume = 0.5;
 
-// less.addEventListener('keydown',() =>
-// {
-//     vid.volume --
-// });
+    window.addEventListener('keydown',(e) =>
+    {
+        if (e.code === 'ArrowLeft'&& element.vol > 0) element.volume -= 0.1
+    });
 
 
-// more.addEventListener('keydown',() =>
-// {
-//     vid.volume ++
-// });
+    window.addEventListener('keydown',(e) =>
+    {
+        if (e.code === "ArrowRight" && element.vol < 1) element.volume += 0.1
+    });
+});

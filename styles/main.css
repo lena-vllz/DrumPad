@@ -99,7 +99,7 @@ body{
   border-radius: 30px;
   background: linear-gradient(145deg,var(--pads1), var(--pads2));
   box-shadow:  9px 9px 13px var(--padsGradient1),-9px -9px 13px var(--padsGradient2);
-  transition: all 0.07s;  
+  transition: all 1.07s;  
 
 }
 .sound2{
