@@ -73,24 +73,24 @@ function changeTheme(e) {
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
-        keys.removeEventListener('click', clickAudio2)
-        keys.addEventListener('click', clickAudio)
+        box.removeEventListener('click', clickAudio2)
+        box.addEventListener('click', clickAudio)
         
     } else if (e.code == "Enter" && themeContent == 'song 1') {
         themeContent = 'song 2'
         document.documentElement.setAttribute('data-theme', 'song2');
         themeContent.textContent = 'song 1'
-        window.removeEventListener('keydown', audioPlay)
-        window.addEventListener('keydown', audioPlay2)
+        box.removeEventListener('keydown', audioPlay)
+        box.addEventListener('keydown', audioPlay2)
 
         for (i = 0 ; i < words2.length; i++) {
             change[i].textContent = words2[i]
         }
         // Remove the first audio on click
-        keys.removeEventListener('click', audioClick)
+        box.removeEventListener('click', audioClick)
        
          // Put the new audio  on click
-        keys.addEventListener('click', audioClick2)
+        box.addEventListener('click', audioClick2)
     }
 }
 
@@ -111,7 +111,7 @@ keys.forEach((box) => {
 })
 
 keys.forEach((box) => {
-    box.addEventListener('click', function audioClick2() { 
+    function audioClick2() { 
         const audio = document.querySelector(`audio[data-info="${box.getAttribute('data-key')}"]`)
         console.log(audio) 
         if(!audio) return;
@@ -119,7 +119,7 @@ keys.forEach((box) => {
         audio.currentTime = 0
         const nameAudio = audio.getAttribute('data-id')
         displayText.textContent = nameAudio
-        })
+        }
 })
 
 //volume management
