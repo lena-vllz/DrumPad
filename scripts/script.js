@@ -69,12 +69,12 @@ function changeTheme(e) {
         window.removeEventListener('keydown', audioPlay2)
         // Put the new audio  on keydown
         window.addEventListener('keydown', audioPlay)
-        
+
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
-        box.removeEventListener('click', clickAudio2)
-        box.addEventListener('click', clickAudio)
+        keys.removeEventListener('click', clickAudio2)
+        keys.addEventListener('click', clickAudio)
         
     } else if (e.code == "Enter" && themeContent == 'song 1') {
         themeContent = 'song 2'
@@ -87,10 +87,10 @@ function changeTheme(e) {
             change[i].textContent = words2[i]
         }
         // Remove the first audio on click
-        box.removeEventListener('click', audioClick)
+        keys.removeEventListener('click', audioClick)
        
          // Put the new audio  on click
-        box.addEventListener('click', audioClick2)
+        keys.addEventListener('click', audioClick2)
     }
 }
 
