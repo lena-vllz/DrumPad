@@ -74,6 +74,70 @@ function changeTheme(e) {
     }
 }
 
+// ON CLICKKKKKK
+
+function clickAudio(event) 
+{
+    const padsName = event.srcElement.className;
+    const padsClass = document.querySelector(`.key[class='${padsName}']`)
+    const padsKey = padsClass.getAttribute('data-key')
+    const pads = document.querySelector(`.box[data-key='${padsKey}']`)
+    pads.classList.add('playing');
+    const audio = document.querySelector(`audio[data-key='${padsKey}']`)
+    if(!audio) return;
+    
+    const nameAudio = audio.getAttribute('data-id')
+    textDisplay.textContent = nameAudio
+
+    audio.currentTime = 0
+    audio.play()
+}
+
+
+function clickAudio2(event) 
+{
+    const padsName = event.srcElement.className;
+    const padsClass = document.querySelector(`.key[class='${padsName}']`)
+    const padsKey = padsClass.getAttribute('data-key')
+
+    const pads = document.querySelector(`.box[data-key='${padsKey}']`)
+    pads.classList.add('playing');
+    const audio = document.querySelector(`audio[data-info='${padsKey}']`)
+    if(!audio) return;
+    
+    const nameAudio = audio.getAttribute('data-id')
+    textDisplay.textContent = nameAudio
+
+    audio.currentTime = 0
+    audio.play()
+}
+
+// change theme & play audio
+window.addEventListener("click", changeTheme2)
+window.addEventListener('click', clickAudio)
+
+
+// Function that display different theme colors and song
+function changeTheme2(e) {
+    if (e.code == "Enter" && themeContent == 'song 2') {
+        themeContent = 'song 2'
+        document.documentElement.setAttribute('data-theme', 'default');
+        themeContent.textContent = 'song 2'
+        window.removeEventListener('click', clickAudio2)
+        window.addEventListener('click', clickAudio)
+        
+    } else if (e.code == "Enter" && themeContent == 'song 1') {
+        themeContent = 'song 1'
+        document.documentElement.setAttribute('data-theme', 'song2');
+        themeContent.textContent = 'song 1'
+        window.removeEventListener('click', clickAudio)
+        window.addEventListener('click', clickAudio2)
+    }
+}
+
+
+
+
 //volume management
 let volum = document.querySelectorAll('audio');
 
