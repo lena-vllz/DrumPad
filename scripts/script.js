@@ -5,7 +5,7 @@ const enter = document.querySelector('.key22')
 let themeContent = 'song 1'
 const keys = document.querySelectorAll('.box')
 const change = document.querySelectorAll('.sound')
-const words1 =['♫♫','wrok it', 'make it','do it','make us','♫♫','harder','better','faster','stronger','song 2','♫♫','more than', 'hour', 'our','never', '♫♫','ever','after','work is','over','♫♫','work it','make it','do it', 'make us', '♫♫']
+const words1 =['♫♫','work it', 'make it','do it','make us','♫♫','harder','better','faster','stronger','song 2','♫♫','more than', 'hour', 'our','never', '♫♫','ever','after','work is','over','♫♫','work it','make it','do it', 'make us', '♫♫']
 const words2 =['♫♫','♫♫','pain','made me','made me','believer','believer','♫♫','pain','break me','song 1','build me','believer','believer','pain','bullets fly','rain','my life', 'my love','my drive','came from','♫♫','pain','made me','made me','believer',"believer"]
 
 displayText.textContent = 'Welcome';
@@ -69,22 +69,25 @@ function changeTheme(e) {
         window.removeEventListener('keydown', audioPlay2)
         // Put the new audio  on keydown
         window.addEventListener('keydown', audioPlay)
+
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
-        box.removeEventListener('click', clickAudio2)
-        box.addEventListener('click', clickAudio)
+        box.removeEventListener('click', audioClick2)
+        box.addEventListener('click', audioClick)
         
     } else if (e.code == "Enter" && themeContent == 'song 1') {
         themeContent = 'song 2'
         document.documentElement.setAttribute('data-theme', 'song2');
         themeContent.textContent = 'song 1'
+        
         box.removeEventListener('keydown', audioPlay)
         box.addEventListener('keydown', audioPlay2)
 
         for (i = 0 ; i < words2.length; i++) {
             change[i].textContent = words2[i]
         }
+        
         // Remove the first audio on click
         box.removeEventListener('click', audioClick)
        
@@ -102,6 +105,7 @@ function changeThemeClick(box) {
         window.removeEventListener('keydown', audioPlay2)
         // Put the new audio  on keydown
         window.addEventListener('keydown', audioPlay)
+
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
