@@ -132,6 +132,7 @@ body{
 
 .playing{
   transform:scale(1.1);
-  background: linear-gradient(145deg, #d1d0cc, #f8f7f3);
+  background: var(--padsGradient2);
+  box-shadow:  9px 9px 13px var(--padsGradient1);
 
 }
