@@ -105,8 +105,7 @@ function changeThemeClick(box) {
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
-        box.removeEventListener('click', clickAudio2)
-        box.addEventListener('click', clickAudio)
+        changeEvent1()
         
     } else if (box.classList[1] == 'key22' && themeContent == 'song 1') {
         themeContent = 'song 2'
@@ -118,43 +117,54 @@ function changeThemeClick(box) {
         for (i = 0 ; i < words2.length; i++) {
             change[i].textContent = words2[i]
         }
-        // Remove the first audio on click
-        box.removeEventListener('click', audioClick)
-       
-         // Put the new audio  on click
-        box.addEventListener('click', audioClick2)
+        changeEvent2()
     }
 }
 // ON CLICKKKKKK
 
-let box 
+changeEvent1()
 
-keys.forEach((box) => {
-    box.addEventListener('click', function audioClick() { 
-        console.log(this.classList[1])
-        if(this.classList[1]=='key22'){
-            changeThemeClick(this)
-        }
-        const audio = document.querySelector(`audio[data-key="${box.getAttribute('data-key')}"]`)
-        if(!audio) return;
-        audio.play()
-        audio.currentTime = 0
-        const nameAudio = audio.getAttribute('data-id')
-        displayText.textContent = nameAudio
-        box.classList.add('playing')
-        
-        })
-})
+function changeEvent1() {
+    keys.forEach(box => {
+        box.removeEventListener('click', audioClick2)
+        box.addEventListener("click", audioClick)
+    })
+}
 
-function audioClick2(box) { 
-    const audio = document.querySelector(`audio[data-info="${box.getAttribute('data-key')}"]`)
+function changeEvent2() {
+    keys.forEach(box => {
+        box.removeEventListener('click', audioClick)
+        box.addEventListener("click", audioClick2)
+    })
+}
+
+function audioClick() { 
+    console.log(this.classList[1])
+    if(this.classList[1]=='key22'){
+        changeThemeClick(this)
+    }
+    const audio = document.querySelector(`audio[data-key="${this.getAttribute('data-key')}"]`)
     if(!audio) return;
     audio.play()
     audio.currentTime = 0
     const nameAudio = audio.getAttribute('data-id')
     displayText.textContent = nameAudio
-    box.classList.add('playing')
+    this.classList.add('playing')
+}
+
+function audioClick2() { 
+    console.log(this.classList[1])
+    const audio = document.querySelector(`audio[data-info="${this.getAttribute('data-key')}"]`)
+    if(this.classList[1]=='key22'){
+        changeThemeClick(this)
     }
+    if(!audio) return;
+    audio.play()
+    audio.currentTime = 0
+    const nameAudio = audio.getAttribute('data-id')
+    displayText.textContent = nameAudio
+    this.classList.add('playing')
+}
 
 //volume management
 let volum = document.querySelectorAll('audio');
@@ -166,19 +176,25 @@ volum.forEach(element => {
     window.addEventListener('keydown',(e) =>
     {
         //left arrow lowers the volume by 0.1
-        if (e.code === 'ArrowLeft'&& element.vol > 0) element.volume -= 0.1
+        if (e.code === 'ArrowLeft') element.volume -= 0.1
+        
     });
 
     window.addEventListener('keydown',(e) =>
     {
+        console.log(e.code);
+        
         //right arrow raises the volume by 0.1
-        if (e.code === "ArrowRight" && element.vol < 1) element.volume += 0.1
+        if (e.code === "ArrowRight") element.volume += 0.1
     });
+    keys.forEach(box => {
+        box.addEventListener('click',() =>
+        {
+            if (box.classList[1] === 'key29') element.volume -= 0.1
+            if (box.classList[1] === 'key30') element.volume += 0.1
+        });
+    })
 });
 
-
-// note avant d'aller dodo:
-// A RAJOUTER :
-//barre de chargement ou animation début
 
 
