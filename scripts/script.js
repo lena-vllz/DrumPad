@@ -3,6 +3,7 @@ const less = document.querySelector('.key29')
 const more = document.querySelector('.key30')
 const enter = document.querySelector('.key22')
 let themeContent = 'song 1'
+const keys = document.querySelectorAll('.box')
 const change = document.querySelectorAll('.sound')
 const words1 =['♫♫','wrok it', 'make it','do it','make us','♫♫','harder','better','faster','stronger','song 2','♫♫','more than', 'hour', 'our','never', '♫♫','ever','after','work is','over','♫♫','work it','make it','do it', 'make us', '♫♫']
 const words2 =['♫♫','♫♫','pain','made me','made me','believer','believer','♫♫','pain','break me','song 1','build me','believer','believer','pain','bullets fly','rain','my life', 'my love','my drive','came from','♫♫','pain','made me','made me','believer',"believer"]
@@ -50,17 +51,17 @@ function removeTransition(e){
     if (e.propertyName !== 'transform') return;
     this.classList.remove('playing')
 }
-const keys = document.querySelectorAll('.box')
 keys.forEach(key => key.addEventListener('transitionend',removeTransition))
 
 // change theme & play audio
-// window.addEventListener("keydown", changeTheme)
+window.addEventListener("keydown", changeTheme)
+window.addEventListener('click', changeTheme)
 window.addEventListener('keydown', audioPlay)
 
 
 // Function that display different theme colors and song
 function changeTheme(e) {
-    if (e.code == "Enter"|| enter == 'click' && themeContent == 'song 2') {
+    if (e.code == "Enter" && themeContent == 'song 2') {
         themeContent = 'song 1'
         document.documentElement.setAttribute('data-theme', 'default');
         themeContent.textContent = 'song 2'
@@ -68,14 +69,12 @@ function changeTheme(e) {
         window.removeEventListener('keydown', audioPlay2)
         // Put the new audio  on keydown
         window.addEventListener('keydown', audioPlay)
+        
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
-        // // Remove the first audio on click
-        // box.removeEventListener('click', clickAudio2)
-       
-        //  // Put the new audio  on click
-        // box.addEventListener('click', clickAudio)
+        box.removeEventListener('click', clickAudio2)
+        box.addEventListener('click', clickAudio)
         
     } else if (e.code == "Enter" && themeContent == 'song 1') {
         themeContent = 'song 2'
@@ -83,45 +82,45 @@ function changeTheme(e) {
         themeContent.textContent = 'song 1'
         window.removeEventListener('keydown', audioPlay)
         window.addEventListener('keydown', audioPlay2)
+
         for (i = 0 ; i < words2.length; i++) {
             change[i].textContent = words2[i]
         }
-        // // Remove the first audio on click
-        // box.removeEventListener('click', clickAudio)
+        // Remove the first audio on click
+        box.removeEventListener('click', audioClick)
        
-        //  // Put the new audio  on click
-        // box.addEventListener('click', clickAudio2)
+         // Put the new audio  on click
+        box.addEventListener('click', audioClick2)
     }
 }
 
 // ON CLICKKKKKK
 
-// const keys = document.querySelectorAll('.box')
-// let box 
+let box 
 
-// keys.forEach((box) => {
-//     box.addEventListener('click', function(e) { 
-//         const audio = document.querySelector(`audio[data-key="${box.getAttribute('data-key')}"]`)
-//         console.log(audio) 
-//         if(!audio) return;
-//         audio.play()
-//         audio.currentTime = 0
-//         const nameAudio = audio.getAttribute('data-id')
-//         displayText.textContent = nameAudio
-//         })
-// })
+keys.forEach((box) => {
+    box.addEventListener('click', function audioClick() { 
+        const audio = document.querySelector(`audio[data-key="${box.getAttribute('data-key')}"]`)
+        console.log(audio) 
+        if(!audio) return;
+        audio.play()
+        audio.currentTime = 0
+        const nameAudio = audio.getAttribute('data-id')
+        displayText.textContent = nameAudio
+        })
+})
 
-// keys.forEach((box) => {
-//     box.addEventListener('click', function(e) { 
-//         const audio = document.querySelector(`audio[data-info="${box.getAttribute('data-key')}"]`)
-//         console.log(audio) 
-//         if(!audio) return;
-//         audio.play()
-//         audio.currentTime = 0
-//         const nameAudio = audio.getAttribute('data-id')
-//         displayText.textContent = nameAudio
-//         })
-// })
+keys.forEach((box) => {
+    box.addEventListener('click', function audioClick2() { 
+        const audio = document.querySelector(`audio[data-info="${box.getAttribute('data-key')}"]`)
+        console.log(audio) 
+        if(!audio) return;
+        audio.play()
+        audio.currentTime = 0
+        const nameAudio = audio.getAttribute('data-id')
+        displayText.textContent = nameAudio
+        })
+})
 
 //volume management
 let volum = document.querySelectorAll('audio');
