@@ -5,8 +5,8 @@ const enter = document.querySelector('.key22')
 let themeContent = 'song 1'
 const keys = document.querySelectorAll('.box')
 const change = document.querySelectorAll('.sound')
-const words1 =['♫♫','work it', 'make it','do it','make us','♫♫','harder','better','faster','stronger','song 2','♫♫','more than', 'hour', 'our','never', '♫♫','ever','after','work is','over','♫♫','work it','make it','do it', 'make us', '♫♫']
-const words2 =['♫♫','♫♫','pain','made me','made me','believer','believer','♫♫','pain','break me','song 1','build me','believer','believer','pain','bullets fly','rain','my life', 'my love','my drive','came from','♫♫','pain','made me','made me','believer',"believer"]
+const words1 =['♫♫','work it', 'make it','do it','make us','♫♫','harder','better','faster','stronger','song 2 Believer','♫♫','more than', 'hour', 'our','never', '♫♫','ever','after','work is','over','♫♫','work it','make it','do it', 'make us', '♫♫']
+const words2 =['♫♫','♫♫','pain','made me','made me','believer','believer','♫♫','pain','break me','song 1 Stronger','build me','believer','believer','pain','bullets fly','rain','my life', 'my love','my drive','came from','♫♫','pain','made me','made me','believer',"believer"]
 
 displayText.textContent = 'Welcome';
 document.documentElement.setAttribute('data-theme', 'default');
@@ -36,6 +36,8 @@ function audioPlay(event) {
 // THEME 2 AUDIO
 // Function that plays audio on keydown + song 2
 function audioPlay2(event) {
+    console.log(event);
+    
     const audio = document.querySelector(`audio[data-info="${event.keyCode}"]`);
     const key = document.querySelector(`.box[data-key="${event.keyCode}"]`);
     if(!audio) return;
@@ -60,52 +62,36 @@ window.addEventListener('keydown', audioPlay)
 
 
 // Function that display different theme colors and song
+
 function changeTheme(e) {
     if (e.code == "Enter" && themeContent == 'song 2') {
         themeContent = 'song 1'
         document.documentElement.setAttribute('data-theme', 'default');
         themeContent.textContent = 'song 2'
-        // Remove the seconde audio on keydown
-        window.removeEventListener('keydown', audioPlay2)
-        // Put the new audio  on keydown
-        window.addEventListener('keydown', audioPlay)
-
+        changeEvent1()
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
-        box.removeEventListener('click', audioClick2)
-        box.addEventListener('click', audioClick)
         
     } else if (e.code == "Enter" && themeContent == 'song 1') {
         themeContent = 'song 2'
         document.documentElement.setAttribute('data-theme', 'song2');
         themeContent.textContent = 'song 1'
-        
-        box.removeEventListener('keydown', audioPlay)
-        box.addEventListener('keydown', audioPlay2)
-
         for (i = 0 ; i < words2.length; i++) {
             change[i].textContent = words2[i]
         }
-        
-        // Remove the first audio on click
-        box.removeEventListener('click', audioClick)
-       
-         // Put the new audio  on click
-        box.addEventListener('click', audioClick2)
+        changeEvent2()
     }
 }
+
+keys.forEach(box => {
+})
 
 function changeThemeClick(box) {
     if (box.classList[1] == 'key22' && themeContent == 'song 2') {
         themeContent = 'song 1'
         document.documentElement.setAttribute('data-theme', 'default');
         themeContent.textContent = 'song 2'
-        // Remove the seconde audio on keydown
-        window.removeEventListener('keydown', audioPlay2)
-        // Put the new audio  on keydown
-        window.addEventListener('keydown', audioPlay)
-
         for (i = 0 ; i < words1.length; i++) {
             change[i].textContent = words1[i]
         }
@@ -115,9 +101,6 @@ function changeThemeClick(box) {
         themeContent = 'song 2'
         document.documentElement.setAttribute('data-theme', 'song2');
         themeContent.textContent = 'song 1'
-        box.removeEventListener('keydown', audioPlay)
-        box.addEventListener('keydown', audioPlay2)
-
         for (i = 0 ; i < words2.length; i++) {
             change[i].textContent = words2[i]
         }
@@ -132,6 +115,8 @@ function changeEvent1() {
     keys.forEach(box => {
         box.removeEventListener('click', audioClick2)
         box.addEventListener("click", audioClick)
+        window.removeEventListener('keydown', audioPlay2)
+        window.addEventListener('keydown', audioPlay)
     })
 }
 
@@ -139,8 +124,11 @@ function changeEvent2() {
     keys.forEach(box => {
         box.removeEventListener('click', audioClick)
         box.addEventListener("click", audioClick2)
+        window.removeEventListener('keydown', audioPlay)
+        window.addEventListener('keydown', audioPlay2)
     })
 }
+
 
 function audioClick() { 
     console.log(this.classList[1])
@@ -200,5 +188,8 @@ volum.forEach(element => {
     })
 });
 
+// note avant d'aller dodo:
+// A RAJOUTER :
+//barre de chargement ou animation début
 
 

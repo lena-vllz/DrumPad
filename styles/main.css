@@ -12,13 +12,13 @@
 
 [data-theme="song2"]
 {
-  --primaryColor: #04b83f;
-  --pads1:#04a639;
-  --pads2:#04c543;
-  --padsGradient1:#039c36;
-  --padsGradient2:#05d448;
-  --lyrics:#fcab10;
-  --title:#7CE577;
+  --primaryColor: #ed5c4d;
+  --pads1:#c94e41;
+  --pads2:#ff6a59;
+  --padsGradient1:#d55345;
+  --padsGradient2:#fe6252;
+  --lyrics:#f4e9da;
+  --title:#273253;
 }
 
 /****************** 
@@ -122,13 +122,13 @@ body{
 
 .key22{
   background: var(--lyrics);
-  box-shadow:  9px 9px 13px var(--padsGradient1);
+  box-shadow:  9px 9px 13px var(--padsGradient1),-9px -9px 13px var(--padsGradient2);
   height:130px;
   padding-top: 70px;
 }
 .key29 , .key30{
   background: var(--lyrics);
-  box-shadow:  9px 9px 13px var(--padsGradient1);
+  box-shadow:  9px 9px 13px var(--padsGradient1),-9px -9px 13px var(--padsGradient2);
 }
 
 /****** animations keys ******/
@@ -136,7 +136,7 @@ body{
 .playing{
   transform:scale(1.1);
   background: var(--padsGradient2);
-  box-shadow:  9px 9px 13px var(--padsGradient1);
+  box-shadow:  9px 9px 13px var(--padsGradient1),-9px -9px 13px var(--padsGradient2);
 
 }
 
