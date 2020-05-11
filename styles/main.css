@@ -151,3 +151,53 @@ footer{
   font-size: 16px;
   font-family: 'Poiret One', cursive;
 }
+
+/******* animation loading *******/
+
+/* .loader{
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:100%;
+  background:#ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loading 4s;
+  opacity: 0;
+}
+
+@keyframes loader{
+  0%{
+    opacity: 1;
+  }
+
+  90% {
+      opacity: 1;
+  }
+
+  100%{
+      opacity: 0;
+  }
+}
+
+.loading{
+  animation: loading 4s;
+  opacity: 0;
+}
+
+@keyframes loading{
+  0%{
+    opacity: 1;
+  }
+
+  90% {
+      opacity: 1;
+  }
+
+  100%{
+      opacity: 0;
+  }
+} */
