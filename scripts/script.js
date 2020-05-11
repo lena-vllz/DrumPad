@@ -113,9 +113,6 @@ function changeTheme(e) {
     }
 }
 
-// keys.forEach(box => {
-// })
-
 // change theme and lyrics on click
 function changeThemeClick(box) {
     if (box.classList[1] == 'key22' && themeContent == 'song 2') {
@@ -159,8 +156,6 @@ function changeEvent2() {
         window.addEventListener('keydown', audioPlay2)
     })
 }
-
-
 
 
 //volume management
